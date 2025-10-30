@@ -16,7 +16,12 @@ const INVENTARA_PARU_SARAKSTS = [
   { attels: "legpress.png", vards:"leg press" },
   { attels: "paklajs.png", vards:"Fitness mat" },
   { attels: "ripa.png", vards:"weight disc" },
-  { attels: "skrejcels.png", vards:"treadmill" }
+  { attels: "skrejcels.png", vards:"treadmill" },
+  { attels: "smithmachine.png", vards:"smith machine" },
+  { attels: "spinritenis.png", vards:"spin bike" },
+  { attels: "rullis.png", vards:"ab roller" },
+  { attels: "row.png", vards:"rowing machine" },
+  { attels: "preachercurl.png", vards:"preacher curl machine" }
 ];
 
 let pirmaKarte = null;
