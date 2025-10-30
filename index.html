@@ -1,30 +1,22 @@
 <html>
     <head>
-        <title>Memory game</title>
+      
         <meta charset="UTF-8">
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sporta inventāra atmiņas spēle</title>
+        <link rel="stils" href="style.css">
         <script src="script.js"></script>
-    </head>
-    <body>
-        
-        <h1>Sporta zāles ekipējuma atmiņas spēle</h1>
-        <a> Uzdevums ir atrast elementu pāri:
-            attēlu un vārdu, kas ir saistīts ar attēlu. <br>
-            Spēles grūtības līmeni var izvēlēties, taču grūtākajā līmenī maksimālais kartīšu
-            pāru skaits ir 34 pāri.<br>
-            Kopā ir 4 grūtības pakāpes. Grūtības pakāpi nosaka spēlētājs, ievadot attiecīgajā lodziņā pāra skaitli no 2 līdz 8, jo 
-            lielāks pāra skaitlis, jo grūtāka spēle. <br>
-            Jebkurā gadījumā 
-       </a>
-  
- <form>
-            <label for="fname">Ievadi n</label><br>
-  <input type="number" id="frame" name="number" value=""><br>
-  <input type="button" name="button" value="Ievadi" onclick="pievienotRindu(frame.value)"> 
-  
-  
-        </form>
+ </head>
+<body>
+  <h1>Sporta inventāra atmiņas spēle</h1>
+  <div id="statistika">Mēģinājumi: <span id="meginasanasSkaits">0</span></div>
+  <div id="speluLaukums"></div>
+  <div>
+  <label for="grutiba">Izvēlies grūtības pakāpi,ievadot 2, 4 vai 6: </label>
+  <input type="number" id="grutiba" min="2" max="6" step="2" value="4">
+  <button onclick="izveletiesGrutibu()">Apstiprināt</button>
+</div>
+  <button onclick="saktSpeli()">Sākt no jauna</button>
      
     </body>
 </html>
