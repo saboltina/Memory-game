@@ -11,7 +11,7 @@ const INVENTARA_PARU_SARAKSTS = [
   { attels: "ikruprese.png", vards:"calf press machine" },
   { attels: "kapnes.png", vards:"stair machine" },
   { attels: "kettlebell.png", vards:"kettlebell" },
-  { attels: "lat pulldown.png", vards:"lat pulldown machine" },
+  { attels: "latpulldown.png", vards:"lat pulldown machine" },
   { attels: "legextention.png", vards:"leg extention" },
   { attels: "legpress.png", vards:"leg press" },
   { attels: "paklajs.png", vards:"Fitness mat" },
