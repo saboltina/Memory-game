@@ -1,24 +1,45 @@
  body {
       font-family: "Poppins", sans-serif;
       background: linear-gradient(135deg, #a0e4ff, #c2ffd8);
+      margin: 0;
+      padding: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      margin: 0;
-      padding: 20px;
     }
+
+
 
     h1 {
       font-size: 2rem;
       margin-bottom: 10px;
       color: #034c81;
+      text-align: center;
     }
-h2{font-size: 1rem;
-   margin-bottom:10px;
-   color: #034c81;  
-}
+
+    h2 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #034c81;
+      text-align: center;
+    }
+
+//visp layouts
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+  
+    #speluZona {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
     #speluLaukums {
       display: grid;
@@ -95,7 +116,7 @@ h2{font-size: 1rem;
     }
 
     button {
-      margin-top: 20px;
+      margin-top: 10px;
       background: #034c81;
       color: white;
       border: none;
