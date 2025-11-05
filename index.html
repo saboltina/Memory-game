@@ -6,30 +6,53 @@
   <title>Sporta inventāra atmiņas spēle</title>
         <link rel="stils" href="style.css">
         <script src="script.js"></script>
- </head>
+    </head>
 <body>
+  <nav>
+    <a href="#speluZona">Spēle</a>
+    <a href="#apraksts">Apraksts</a>
+  </nav>
+
   <h1>Sporta inventāra atmiņas spēle</h1>
-     <div class="container">
-  <div id="statistika">Mēģinājumi: <span id="meginasanasSkaits">0</span></div>
-  <div id="speluLaukums"></div>
-  <div>
-  <label for="grutiba">Izvēlies grūtības pakāpi,ievadot 2, 4 vai 6: </label>
-  <input type="number" id="grutiba" min="2" max="6" step="2" value="4">
-  <button onclick="izveletiesGrutibu()">Apstiprināt</button>
-</div>
-  <button onclick="saktSpeli()">Sākt no jauna</button>
-     <div>
-         <h2>Spēles apraksts</h2>
-    <p>
-      Mērķis ir, apgriežot kartītes, atrast katram sporta zāles inventāra attēlam atbilstošo nosaukumu 1 minūtes laikā. 
-      Spēlējot šo spēli vairākas reizes ir iespēja iemācīties sporta zāles inventāra nosaukumus.
-    </p>
-    <h3>Uzdevums:</h3>
-    <ul>
-      <li>Ievadiet savu lietotājvārdu tam paredzētajā vietā;</li>
-      <li>Izvēlieties grūtības pakāpi (2, 4 vai 6). Ja ievadīsiet citu skaitli, parādīsies kļūdas ziņa.</li>
-      <li>Brīdī, kad uzspiedīsit uz pirmās kartītes, sāksies 1 minūtes atskaite, kuras laikā jums jāatrod visi kartīšu pāri.</li>
-    </ul>
-     </div>
+
+  <div class="container">
+    <div id="speluZona">
+      <div id="statistika">Mēģinājumi: <span id="meginasanasSkaits">0</span></div>
+      <div id="speluLaukums"></div>
+
+      <div>
+        <label for="grutiba">Izvēlies grūtības pakāpi (2, 4 vai 6): </label>
+        <input type="number" id="grutiba" min="2" max="6" step="2" value="4">
+        <button onclick="izveletiesGrutibu()">Apstiprināt</button>
+      </div>
+
+      <button onclick="saktSpeli()">Sākt no jauna</button>
+    </div>
+
+    <div id="labaisPanelis">
+      <h2>Spēlētāja informācija</h2>
+      <input type="text" id="playerName" placeholder="Ievadi savu vārdu">
+      <h2>Rezultātu tabula</h2>
+      <table id="scoreTable">
+        <tr><th>Vārds</th><th>Punkti</th></tr>
+        <tr><td>Anna</td><td>12</td></tr>
+        <tr><td>Jānis</td><td>9</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div id="apraksts">
+    <h2>Spēles apraksts</h2> 
+	<p> Mērķis ir, apgriežot kartītes, atrast katram sporta 
+	zāles inventāra attēlam atbilstošo nosaukumu 1 minūtes laikā. 
+	Spēlējot šo spēli vairākas reizes ir iespēja iemācīties sporta zāles inventāra nosaukumus. </p>
+	<h3>Uzdevums:</h3>
+	<ul> 
+	<li>Ievadiet savu lietotājvārdu tam paredzētajā vietā;</li> 
+	<li>Izvēlieties grūtības pakāpi (2, 4 vai 6). Ja ievadīsiet citu skaitli, parādīsies kļūdas ziņa.</li>
+	<li>Brīdī, kad uzspiedīsit uz pirmās kartītes, sāksies 1 minūtes atskaite, kuras laikā jums jāatrod visi kartīšu pāri.</li>
+	</ul> 
+	</div>
+
     </body>
 </html>
