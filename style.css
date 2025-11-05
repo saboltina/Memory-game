@@ -1,4 +1,4 @@
- body {
+body {
       font-family: "Poppins", sans-serif;
       background: linear-gradient(135deg, #a0e4ff, #c2ffd8);
       margin: 0;
@@ -7,24 +7,18 @@
       flex-direction: column;
       align-items: center;
     }
-
-
-
     h1 {
       font-size: 2rem;
       margin-bottom: 10px;
       color: #034c81;
       text-align: center;
     }
-
     h2 {
       font-size: 1.2rem;
       margin-bottom: 10px;
       color: #034c81;
       text-align: center;
     }
-
-//visp layouts
     .container {
       display: flex;
       justify-content: center;
@@ -33,29 +27,24 @@
       margin-top: 20px;
       flex-wrap: wrap;
     }
-
-  
     #speluZona {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-
     #speluLaukums {
       display: grid;
-      grid-template-columns: repeat(6, 110px);
+      grid-template-columns: repeat(4, 110px);
       grid-gap: 12px;
       justify-content: center;
       margin-top: 20px;
     }
-
     .karte {
       width: 110px;
       height: 110px;
       perspective: 1000px;
       cursor: pointer;
     }
-
     .karte-ieks {
       position: relative;
       width: 100%;
@@ -63,11 +52,9 @@
       transition: transform 0.6s;
       transform-style: preserve-3d;
     }
-
     .karte.apgriezta .karte-ieks {
       transform: rotateY(180deg);
     }
-
     .karte-puse {
       position: absolute;
       width: 100%;
@@ -83,38 +70,32 @@
       text-align: center;
       padding: 6px;
     }
-
     .karte-aizmugure {
       background: #034c81;
       color: white;
       transform: rotateY(0deg);
     }
-
     .karte-priekspuse {
       transform: rotateY(180deg);
       background: #ffffff;
     }
-
     .karte-priekspuse img {
       width: 100%;
       height: 100%;
       object-fit: contain;
       border-radius: 10px;
     }
-
     .karte-priekspuse .vards {
       font-size: 0.95rem;
       color: #034c81;
       font-weight: 600;
     }
-
     #statistika {
       margin-top: 15px;
       font-size: 1rem;
       color: #034c81;
       font-weight: 500;
     }
-
     button {
       margin-top: 10px;
       background: #034c81;
@@ -125,7 +106,66 @@
       cursor: pointer;
       font-size: 1rem;
     }
-
     button:hover {
       background: #0568b5;
+    }
+    #labaisPanelis {
+      display: flex;
+      flex-direction: column;
+      width: 250px;
+      background: #ffffffcc;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      padding: 20px;
+      align-items: center;
+    }
+    #playerName {
+      width: 90%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #034c81;
+      border-radius: 8px;
+    }
+    #scoreTable {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    #scoreTable th, #scoreTable td {
+      border: 1px solid #034c81;
+      padding: 6px;
+      text-align: center;
+    }
+    #scoreTable th {
+      background-color: #034c81;
+      color: white;
+    }
+    #apraksts {
+      background: #ffffffcc;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      padding: 20px;
+      width: 80%;
+      margin: 40px auto;
+    }
+    nav {
+      width: 100%;
+      background-color: #034c81;
+      color: white;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #c2ffd8;
     }
