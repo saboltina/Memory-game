@@ -1,4 +1,4 @@
-const INVENTARA_PARU_SARAKSTS = [
+let inventaraSaraksts = [
   { attels: "barbell.png", vards:"barbell" },
   { attels: "bench.png", vards:"bench" },
   { attels: "benchpress.png", vards:"bench press" },
@@ -24,76 +24,34 @@ const INVENTARA_PARU_SARAKSTS = [
   { attels: "preachercurl.png", vards:"preacher curl machine" }
 ];
 
+//samaisa
+function shuffle(array) {
+  array.sort(() => Math.random() - 0.5);
+}
+
+function randomPairs(k) {
+  let randomi = new Set();
+  let randomBildes = [];
+  let n = inventaraSaraksts.length;
+  while (randomi.size < k) {
+    randomi.add(Math.floor(Math.random() * n));
+  }
+  randomi.forEach(item => {
+    let par = inventaraSaraksts[item];
+    randomBildes.push({ tips:"attels", saturs:par.attels, paraId:item });
+    randomBildes.push({ tips:"teksts", saturs:par.vards, paraId:item });
+  });
+  return randomBildes;
+}
+//galvenie mainigie
 let pirmaKarte = null;
 let otraKarte = null;
 let meginasanas = 0;
 let bloķets = false;
 let kartes = [];
-let laukumaIzmers = 4; // sakuma automatiski bus (4x4)
+let laukumaIzmers = 4;
 
-function sajaukt(masivs) {
-  for (let i = masivs.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [masivs[i], masivs[j]] = [masivs[j], masivs[i]];
-  }
-  return masivs;
-}
-
-// grutibas pakapes izvele
-function izveletiesGrutibu() {
-  let ievade = parseInt(document.getElementById("grutiba").value);
-  if (ievade === 2 || ievade === 4 || ievade === 6) {
-    laukumaIzmers = ievade;
-    saktSpeli(); 
-  } else {
-    alert("Lūdzu ievadi tikai 2, 4 vai 6!");
-  }
-}
-
-// izveido speles laukumu
-function izveidotLaukumu(n) {
-  const laukums = document.getElementById("speluLaukums");
-  laukums.innerHTML = "";
-  laukums.style.gridTemplateColumns = `repeat(${n}, 110px)`;
-
-  const paruSkaits = (n * n) / 2;
-  const atlasitiePāri = INVENTARA_PARU_SARAKSTS.slice(0, paruSkaits);
-
-  kartes = sajaukt(atlasitiePāri.flatMap((pāris, indekss) => [
-    { id: indekss * 2, tips: "attels", saturs: pāris.attels, paraId: indekss, sakritis: false },
-    { id: indekss * 2 + 1, tips: "teksts", saturs: pāris.vards, paraId: indekss, sakritis: false }
-  ]));
-
-  attelotLaukumu(kartes);
-  document.querySelectorAll(".karte").forEach(k =>
-    k.addEventListener("click", () => apgrieztKarti(k))
-  );
-}
-
-// laukuma attelosana 
-function attelotLaukumu(kartesMasivs) {
-  const laukums = document.getElementById("speluLaukums");
-  laukums.innerHTML = "";
-  kartesMasivs.forEach(karte => {
-    const elements = document.createElement("div");
-    elements.className = "karte";
-    elements.dataset.id = karte.id;
-    elements.innerHTML = `
-      <div class="karte-ieks">
-        <div class="karte-puse karte-aizmugure">🏋️</div>
-        <div class="karte-puse karte-priekspuse">
-          ${
-            karte.tips === "attels"
-              ? `<img src="${karte.saturs}" alt="inventārs">`
-              : `<div class="vards">${karte.saturs}</div>`
-          }
-        </div>
-      </div>`;
-    laukums.appendChild(elements);
-  });
-}
-
-// sakt no sakuma
+//speles saksana
 function saktSpeli() {
   meginasanas = 0;
   document.getElementById("meginasanasSkaits").textContent = meginasanas;
@@ -103,23 +61,61 @@ function saktSpeli() {
   bloķets = false;
 }
 
-//kartisu darbiba
-function apgrieztKarti(kartesElements) {
-  if (bloķets) return;
-  const id = parseInt(kartesElements.dataset.id);
-  const karte = kartes.find(k => k.id === id);
-  if (karte.sakritis || kartesElements.classList.contains("apgriezta")) return;
+//limena izvele
+function izveletiesGrutibu() {
+  let ievade = parseInt(document.getElementById("grutiba").value);
+  if ([2,4,6].includes(ievade)) {
+    laukumaIzmers = ievade;
+    saktSpeli();
+  } else {
+    alert("Lūdzu ievadi tikai 2, 4 vai 6!");
+  }
+}
 
-  kartesElements.classList.add("apgriezta");
+//izveido laukumu n*n pogaas
+function izveidotLaukumu(n) {
+  let laukums = document.getElementById("speluLaukums");
+  laukums.innerHTML = "";
+  laukums.style.gridTemplateColumns = `repeat(${n}, 110px)`;
+
+  let paruSkaits = (n * n) / 2;
+  kartes = randomPairs(paruSkaits);
+  shuffle(kartes);
+
+  kartes.forEach((karte, i) => {
+    let poga = document.createElement("div");
+    poga.className = "karte";
+    poga.dataset.id = i;
+    poga.innerHTML = `
+      <div class="karte-ieks">
+        <div class="karte-puse karte-aizmugure">🏋️</div>
+        <div class="karte-puse karte-priekspuse">
+          ${karte.tips === "attels"
+            ? `<img src="${karte.saturs}" alt="">`
+            : `<div class="vards">${karte.saturs}</div>`}
+        </div>
+      </div>`;
+    poga.addEventListener("click", () => apgrieztKarti(poga, i));
+    laukums.appendChild(poga);
+  });
+}
+
+
+function apgrieztKarti(elem, id) {
+  if (bloķets) return;
+  let karte = kartes[id];
+  if (karte.sakritis || elem.classList.contains("apgriezta")) return;
+  elem.classList.add("apgriezta");
 
   if (!pirmaKarte) {
-    pirmaKarte = { karte, elements: kartesElements };
+    pirmaKarte = { karte, elem };
   } else {
-    otraKarte = { karte, elements: kartesElements };
+    otraKarte = { karte, elem };
     parbauditSakritibu();
   }
 }
 
+//parbaude vai pirma karte vienada ar otru
 function parbauditSakritibu() {
   bloķets = true;
   meginasanas++;
@@ -131,8 +127,8 @@ function parbauditSakritibu() {
     atiestatītGājienu();
   } else {
     setTimeout(() => {
-      pirmaKarte.elements.classList.remove("apgriezta");
-      otraKarte.elements.classList.remove("apgriezta");
+      pirmaKarte.elem.classList.remove("apgriezta");
+      otraKarte.elem.classList.remove("apgriezta");
       atiestatītGājienu();
     }, 1000);
   }
