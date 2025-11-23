@@ -8,6 +8,7 @@
         <script src="script.js"></script>
     </head>
 <body>
+
   <nav>
     <a href="#speluZona">Spēle</a>
     <a href="#apraksts">Apraksts</a>
@@ -17,42 +18,49 @@
 
   <div class="container">
     <div id="speluZona">
-      <div id="statistika">Mēģinājumi: <span id="meginasanasSkaits">0</span></div>
-      <div id="speluLaukums"></div>
-
-      <div>
-        <label for="grutiba">Izvēlies grūtības pakāpi (2, 4 vai 6): </label>
-        <input type="number" id="grutiba" min="2" max="6" step="2" value="4">
-        <button onclick="izveletiesGrutibu()">Apstiprināt</button>
+      <div id="statistika">
+        Atlikušais laiks: <span id="laiks">—</span>
       </div>
 
-      <button onclick="saktSpeli()">Sākt no jauna</button>
+      <div id="speluLaukums"></div>
+<br>
+      <div>
+        <label>Izvēlies līmeni: </label>
+        <div class="level-buttons">
+          <button id="lvl1" class="small" onclick="izveletiesGrutibu(1,2)">Līmenis 1 (2x2)</button>
+          <button id="lvl2" class="small" onclick="izveletiesGrutibu(2,4)">Līmenis 2 (4x4)</button>
+          <button id="lvl3" class="small" onclick="izveletiesGrutibu(3,6)">Līmenis 3 (6x6)</button>
+        </div>
+      </div>
+
+      <button onclick="saktNoJauna()">Sākt no jauna</button>
     </div>
 
     <div id="labaisPanelis">
       <h2>Spēlētāja informācija</h2>
       <input type="text" id="playerName" placeholder="Ievadi savu vārdu">
-      <h2>Rezultātu tabula</h2>
+      <button id="pievienotBtn" onclick="pievienotLideru()">Pievienot</button>
+
+      <h2 style="margin-top:12px">Līderu tabula</h2>
       <table id="scoreTable">
-        <tr><th>Vārds</th><th>Punkti</th></tr>
-        <tr><td>Anna</td><td>12</td></tr>
-        <tr><td>Jānis</td><td>9</td></tr>
+        <tr><th>Vārds</th><th>Līmenis</th><th>Laiks</th></tr>
+        <tr><td>Anna</td><td>2</td><td>30s</td></tr>
+        <tr><td>Jānis</td><td>3</td><td>55s</td></tr>
       </table>
     </div>
   </div>
 
   <div id="apraksts">
-    <h2>Spēles apraksts</h2> 
-	<p> Mērķis ir, apgriežot kartītes, atrast katram sporta 
-	zāles inventāra attēlam atbilstošo nosaukumu 1 minūtes laikā. 
-	Spēlējot šo spēli vairākas reizes ir iespēja iemācīties sporta zāles inventāra nosaukumus. </p>
-	<h3>Uzdevums:</h3>
-	<ul> 
-	<li>Ievadiet savu lietotājvārdu tam paredzētajā vietā;</li> 
-	<li>Izvēlieties grūtības pakāpi (2, 4 vai 6). Ja ievadīsiet citu skaitli, parādīsies kļūdas ziņa.</li>
-	<li>Brīdī, kad uzspiedīsit uz pirmās kartītes, sāksies 1 minūtes atskaite, kuras laikā jums jāatrod visi kartīšu pāri.</li>
-	</ul> 
-	</div>
+    <h2>Spēles apraksts</h2>
+    <h3>Mērķis:</h3>
+    <p>Atklāt visus pārus pirms beidzas laiks.</p>
+    <h3>Instrukcijas:</h3>
+    <p>Spēlētājs izvēlas vienu no piedāvātajām grūtības pakāpēm (2x2, 4x4, 6x6). 
+	Pēc vēlamās grūtības pakāpes izvēles spēlētājs tiek nekavējoties ievadīts spēlē un tiek uzsākts taimeris. Noteiktajā laikā (60 sekundes)
+	spēlētājam ir jāatrod visi pāri. Ja spēlētājam izdodas atrast visus pārus, viņš uzvar, pretējā gadījumā — spēlētājs zaudē.
 
+Ja spēlētājs zaudē, viņš netiek pievienoti līderu tabulām. Ja spēlētājs uzvar, viņam tiek dota iespēja ievadīt savu vārdu un 
+ievietot sevi līderu tabulā ar izvēlēto vārdu. Jo īsākā laikā spēlētājs atrod pārus, jo augstāk līdera tabulā viņš atrodas.</p>
+  </div>
     </body>
 </html>
