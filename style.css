@@ -1,6 +1,6 @@
 body {
       font-family: "Poppins", sans-serif;
-      background: linear-gradient(135deg, #a0e4ff, #c2ffd8);
+      background: linear-gradient(135deg, #9E87CB, #ECE6F5);
       margin: 0;
       padding: 0;
       display: flex;
@@ -10,14 +10,19 @@ body {
     h1 {
       font-size: 2rem;
       margin-bottom: 10px;
-      color: #034c81;
+      color: #4B2FA1;
       text-align: center;
     }
     h2 {
       font-size: 1.2rem;
       margin-bottom: 10px;
-      color: #034c81;
+      color: #4B2FA1;
       text-align: center;
+    }
+    h3 {
+      font-size: 1rem;
+      color: #4B2FA1;
+      margin-bottom: 10px;
     }
     .container {
       display: flex;
@@ -26,11 +31,13 @@ body {
       gap: 40px;
       margin-top: 20px;
       flex-wrap: wrap;
+      width: 100%;
     }
     #speluZona {
       display: flex;
       flex-direction: column;
       align-items: center;
+      flex: 1 1 600px;
     }
     #speluLaukums {
       display: grid;
@@ -65,15 +72,14 @@ body {
       align-items: center;
       justify-content: center;
       background: white;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       font-size: 0.9rem;
       text-align: center;
       padding: 6px;
     }
     .karte-aizmugure {
-      background: #034c81;
+      background: #765AB6;
       color: white;
-      transform: rotateY(0deg);
     }
     .karte-priekspuse {
       transform: rotateY(180deg);
@@ -85,7 +91,7 @@ body {
       object-fit: contain;
       border-radius: 10px;
     }
-    .karte-priekspuse .vards {
+    .vards {
       font-size: 0.95rem;
       color: #034c81;
       font-weight: 600;
@@ -93,12 +99,13 @@ body {
     #statistika {
       margin-top: 15px;
       font-size: 1rem;
-      color: #034c81;
+      color: #00008B;
       font-weight: 500;
+      text-align: center;
     }
     button {
       margin-top: 10px;
-      background: #034c81;
+      background: #4B2FA1;
       color: white;
       border: none;
       padding: 10px 18px;
@@ -106,16 +113,15 @@ body {
       cursor: pointer;
       font-size: 1rem;
     }
-    button:hover {
-      background: #0568b5;
-    }
+    button:hover { background: #765AB6; }
+    button:disabled { background: #b59de0; cursor: not-allowed; }
     #labaisPanelis {
-      display: flex;
+      display: none; 
       flex-direction: column;
       width: 250px;
       background: #ffffffcc;
       border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
       padding: 20px;
       align-items: center;
     }
@@ -136,20 +142,20 @@ body {
       text-align: center;
     }
     #scoreTable th {
-      background-color: #034c81;
+      background-color: #4B2FA1;
       color: white;
     }
     #apraksts {
       background: #ffffffcc;
       border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
       padding: 20px;
       width: 80%;
       margin: 40px auto;
     }
     nav {
       width: 100%;
-      background-color: #034c81;
+      background-color: #4B2FA1;
       color: white;
       display: flex;
       justify-content: center;
@@ -166,6 +172,6 @@ body {
       font-weight: 500;
       transition: color 0.3s;
     }
-    nav a:hover {
-      color: #c2ffd8;
-    }
+    nav a:hover { color: #c2ffd8; }
+    .level-buttons { display:flex; gap:10px; margin-top:10px; align-items:center; }
+    .small { padding:6px 10px; font-size:0.95rem; }
